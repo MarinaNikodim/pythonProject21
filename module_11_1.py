@@ -9,7 +9,7 @@ try:
     print(datafile.head()) # проверка, вывод пяти первых строк
     # суммирование выручки и доплаты от озон, создание сводного файла
     pivot_table = pd.pivot_table(datafile, values=['Кол-во', 'Реализовано на сумму, руб.', 'Доплата за счет Ozon, руб.'],
-                                 index=['Товар'], aggfunc=np.sum)
+                                 index=['Товар'], aggfunc='sum')
     print(pivot_table)
     pivot_table.to_excel('Pivot_report.xlsx') # выгрузка сводного файла
 except FileNotFoundError:
